@@ -1,1 +1,1 @@
-Scenario: Write a file
+Feature: Write a file

@@ -1,1 +1,1 @@
-Scenario: Run the system using Command Line arguments
+Feature: Run the system using Command Line arguments

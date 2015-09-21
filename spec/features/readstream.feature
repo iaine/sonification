@@ -1,1 +1,1 @@
-Scenario: Read a Data Stream
+Feature: Read a Data Stream

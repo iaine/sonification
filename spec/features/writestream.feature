@@ -1,1 +1,1 @@
-Scenario: Write a data Stream
+Feature: Write a data Stream
