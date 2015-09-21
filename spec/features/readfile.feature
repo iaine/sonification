@@ -14,3 +14,8 @@ Feature: Read a File
      Given we have a non-existent file called "non.txt"
      When we try to open the file "non.txt"
      Then we have an error
+
+  Scenario: Read incorrect file type
+     Given we have a non-existent file called "test.mp3"
+     When we try to open the file "test.mp3"
+     Then we have an error
