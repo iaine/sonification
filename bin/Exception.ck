@@ -1,6 +1,11 @@
 /**
 *  Exception class
-*  @author Iain Emsley 
+*  @author Iain Emsley
+*
+*  Usage:
+*  Exception e;
+*  e.createMessage("test");
+*  e.print(); //prints "test":string 
 */
 
 public class Exception 
@@ -10,7 +15,7 @@ public class Exception
     /**
     * Method to create an exception
     */
-    fun string createException(string message)
+    fun string createMessage(string message)
     {
         message => except;
     }
