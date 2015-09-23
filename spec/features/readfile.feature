@@ -16,6 +16,6 @@ Feature: Read a File
      Then we have an error
 
   Scenario: Read incorrect file type
-     Given we have a non-existent file called "test.mp3"
-     When we try to open the file "test.mp3"
-     Then we have an error
+     Given we have a file called "test.mp3"
+     When we open the file "test.mp3"
+     Then we have a file error
