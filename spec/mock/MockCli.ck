@@ -12,7 +12,7 @@ if (get_extension(fname) != "wav")
    e.print();
 } else 
 {
-   <<< "Found a WAV file" >>>;
+   <<< "Success" >>>;
 }
 
 /**
