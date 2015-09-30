@@ -2,7 +2,7 @@
 
 chuck --loop &
 
-chuck + Assert.ck $1
+chuck + Assert.ck $1 $2
 
 echo "Killing Chuck processes"
 
