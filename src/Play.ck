@@ -4,9 +4,8 @@
 *  @author Iain Emsley
 */
 
-Machine.add("PlayIntf.ck");
 
-public class Play extends PlayIntf
+public class Play extends IPlay
 {
 
 
