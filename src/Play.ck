@@ -5,7 +5,18 @@
 */
 
 
-public class Play extends IPlay
+/**
+*  Interface for Play
+*/
+
+class IPlay {
+
+  fun void playSound(int freq){}
+
+}
+
+
+public class PlayWave extends IPlay
 {
 
   fun void playSound(int freq) {
