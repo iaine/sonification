@@ -4,6 +4,6 @@
 
 public class IPlay {
 
-  fun void playSound(){}
+  fun void playSound(int freq){}
 
 }
