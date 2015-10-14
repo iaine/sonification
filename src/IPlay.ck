@@ -1,3 +1,9 @@
-class PlayIntf {
+/**
+*  Interface for Play
+*/
+
+public class IPlay {
+
+  fun void playSound(){}
 
 }
