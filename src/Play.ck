@@ -11,7 +11,7 @@ public class Play extends IPlay
   fun void playSound(int freq) {
     SinOsc sw;
     freq => sw.freq;
-    1:: => now;
+    1::second => now;
     // switch note off
     0 => sw.freq; 
   }
