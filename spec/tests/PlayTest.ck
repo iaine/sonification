@@ -3,14 +3,17 @@
 */
 
 PlayWave pw;
-
+Sample s;
 Assert a;
 
 <<< "Asserting not null" >>>;
 a.assertNotNull(pw);
 
-a.assertEqual(pw.convertMidi(60), 261.625565);
+pw.convertMidi(60) => float l;
+a.assertEquals(l, 261.625565, 1.0);
 
 <<< "End assertion tests" >>>;
 
 pw.playSound(60);
+
+a.assertNotNull(s.highFrequency());
