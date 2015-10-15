@@ -2,28 +2,32 @@
 *  Very naive Mock class for testing
 */
 
-class Mock()
+public class Mock
 {
 
-  fun void createMock(string class, string functionname) {
-    if (class == "Play") {
+  fun void createMock (string classname, string functionname, int args[]) 
+  {
+    if (classname == "Play") {
       playMock pm;
-      pm.createMock(class, functionname);
+      pm.createMock(classname, functionname, args);
     } else {
-      <<< "Class not found", class >>>;
+      <<< "Class not found", classname >>>;
     }
   }
 }
 
-class playMock ()
+class playMock
 {
-   fun void createMock(string class, string functionname) 
+   fun void createMock (string classname, string functionname, int args[]) 
    {
-      Play p;
+      PlayWave p;
       if (functionname == "playSound") {
-        p.playSound();
+        p.playSound(args[0]);
       } else {
         <<< "Function name is invalid", functionname >>>;
       }
    }
 }
+
+Mock m;
+m.createMock("Play", "playSound", [60]);
