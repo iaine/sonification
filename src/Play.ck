@@ -12,11 +12,31 @@
 class IPlay {
 
   fun void playSound(int freq){}
+  fun void playSound(float freq){}
 
 }
 
+/**
+*  Factory class to be called
+*/
+public class PlayFactory
+{
+    fun void createFactory(int args[], string factType){
+      if (factType == "playwave") {
+         PlayWave p;
+         p.playSound(args[0]);
+      } 
+    } 
 
-public class PlayWave extends IPlay
+    fun void createFactory(float args[], string factType){
+      if (factType == "playwave") {
+         PlayWave p;
+         p.playSound(args[0]);
+      }
+    }
+}
+
+class PlayWave extends IPlay
 {
 
   /**
