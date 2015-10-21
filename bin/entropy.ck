@@ -4,11 +4,12 @@
 */
 
 OSCSocket s;
-PlayWave p;
+PlayFactory pf;
 
 fun void main()
 {
-  s.read(p.playSound(60));
+  [60] @=> int test[];
+  s.read(pf.createFactory(test, "playwave"));
 }
 
 main();
