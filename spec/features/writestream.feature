@@ -25,6 +25,14 @@ Feature: Write a data Stream
     When  I define "127.0.0.1" and the port 4567 and the number is 30.0, and the second is 40.0
     Then I hear a sound that lasts for 10 seconds
 
+
+     Given I want to send an integer
+     When I define "127.0.0.1" and the port 4567 and the number is -1, and the second is 0
+     Then I want to receive "Negative numbers not processed"
+
+     Given I want to send an integer
+     When I define "127.0.0.1" and the port 4567 and the number is 100000, and the second is 0
+     Then I want to receive "Frequency received is too high"
 #    Given I want to send two integers to two channels
 #    When  I define "127.0.0.1" and the port "4567" and the integer is 30, the second is 40
 #    Then I hear a sound in each channel

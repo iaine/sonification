@@ -2,12 +2,6 @@
 *  Unit tests for the socket class
 */
 
-class Socket {
-
-   fun void recv() {}
-
-}
-
 Assert a;
 
 Socket s;
