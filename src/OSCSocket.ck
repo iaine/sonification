@@ -17,13 +17,14 @@ class Socket
 public class OSCSocket extends Socket
 {
    fun void read(){
-      PlayFactory pf;
 
       OscRecv recv;
       //@todo remove the hardcoded dependency
       6449 => recv.port;
-     
-      recv.listen();
+      <<< "reading from 6449 " >>>;     
+      if (!recv.listen()) {
+        <<< "Not listening" >>>;
+      }
 
       recv.event("/test, i") @=> OscEvent e;
 
@@ -34,7 +35,7 @@ public class OSCSocket extends Socket
         while (e.nextMsg() != 0)
         {
           
-          e.getFloat();
+          <<< e.getInt() >>>;
         }
       }
 
