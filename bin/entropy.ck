@@ -10,3 +10,5 @@ fun void main()
 {
   s.read(p.playSound(60));
 }
+
+main();
