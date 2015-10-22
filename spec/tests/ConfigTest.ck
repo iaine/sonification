@@ -6,7 +6,7 @@ Assert a;
 Config c;
 
 a.assertNotNull(c);
-string conf[];
-"host = 127.0.0.1" => string cline;
-c.readLine(conf,cline);
-a.assertEquals(conf["host"],"127.0.0.1");
+"127.0" => string host;
+c.readConf(host,"4556", "/text", "i i") @=> string conf[];
+a.assertNotNull(conf["host"]);
+a.assertEquals(conf["host"], host);
