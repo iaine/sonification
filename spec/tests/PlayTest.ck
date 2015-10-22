@@ -19,5 +19,6 @@ a.assertEquals(pw.playSound("failme"), "Argument error");
 <<< "Begin Mocks" >>>;
 m.createMock(pw, "playSound",[60]);
 m.createMock(pw, "playSound",[60.0]);
-
+m.createMock(pw, "playSound",[]);
+m.createMock(pw, "playSound",["failme"]);
 <<< "End Mocks" >>>;
