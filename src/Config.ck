@@ -8,11 +8,14 @@ public class Config
   /**
   *  Read the config file
   */
-  fun string[] readConf()
+  fun string[] readConf(string host, string port, string channel, string types)
   {
-    if (!file.open("config.txt", FileIO.READ))
-    {
-      <<< "File open " >>>;
-    }    
+    string conf[4];
+    host => conf["host"];
+    port => conf["port"];
+    channel => conf["channel"];
+    types => conf["types"];
+
+    return conf;
   }
 }
