@@ -20,6 +20,8 @@ def step_impl (context):
 def step_impl (context):
     pass
 
+
+
 rep=0
 @given('I want to send {reps} floats with 1 channel')
 def step_impl (context, reps):
@@ -62,3 +64,7 @@ def step_impl(context):
 @then('I hear a sound that lasts for {son_length} seconds')
 def step_impl(context,son_length):
     pass
+
+@then('I want to receive "{message}"')
+def step_impl(context, message):
+    assert(response, message)
