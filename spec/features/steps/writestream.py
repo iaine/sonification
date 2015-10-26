@@ -2,7 +2,7 @@
    Functional tests for the Write Stream
 '''
 from behave import given, when, then
-from OSC import OSCClient, OSCMessage
+from OSC import OSCClient, OSCMessage, OSCServer
 
 @given('I want to send an integer')
 def step_impl (context):
@@ -65,6 +65,17 @@ def step_impl(context):
 def step_impl(context,son_length):
     pass
 
+def listen_handler(path, tags, args, source):
+    '''
+        Handler for the listener
+    '''
+    response = args[0]
+    assert(response, "Negative numbers not processed")
+
 @then('I want to receive "{message}"')
 def step_impl(context, message):
-    assert(response, message)
+    listen = OSCServer(("127.0.0.1", 4589))
+    listen.timeout = 0 #infinite timeout
+    listen.addMsgHandler("/err", listen_handler)
+    listen.close()
+    
