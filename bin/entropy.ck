@@ -6,10 +6,12 @@
 OSCSocket s;
 Config c;
 
-fun void main()
-{
-  c.readConf(me.args[0], me.args[1], me.args[2], me.args[3])
-  s.read();
-}
+//fun void loop (me)
+//{
+  string config[10];
+  c.readConf(me.arg(0), me.arg(1), me.arg(2), me.arg(3)) @=> config;
+  <<< "reading" >>>;
+  s.read(config);
+//}
 
-main(me.args());
+//loop(me);
