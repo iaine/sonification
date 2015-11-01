@@ -9,24 +9,22 @@
 class Socket
 {
 
-   fun void read(){}
-   fun void send(){}
+   fun void read(string conf[]){}
+   fun void send(string conf[]){}
 }
 
 
 public class OSCSocket extends Socket
 {
-   fun void read(){
+   fun void read(string conf[]){
 
       OscRecv recv;
-      //@todo remove the hardcoded dependency
-      6449 => recv.port;
-      <<< "reading from 6449 " >>>;     
-      if (!recv.listen()) {
-        <<< "Not listening" >>>;
-      }
 
-      recv.event("/test, i") @=> OscEvent e;
+      Std.atoi(conf["port"]) => recv.port;
+   
+      recv.listen;
+      "/" + conf["channel"] + ", " + conf["types"] => string chan;
+      recv.event(chan) @=> OscEvent e;
 
       while ( true ) 
       {
@@ -43,7 +41,7 @@ public class OSCSocket extends Socket
    }
 
 
-   fun void send() {
+   fun void send(string conf[]) {
 
    }
 }

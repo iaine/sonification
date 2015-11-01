@@ -10,7 +10,7 @@ public class Config
   */
   fun string[] readConf(string host, string port, string channel, string types)
   {
-    string conf[4];
+    string conf[10];
     host => conf["host"];
     port => conf["port"];
     channel => conf["channel"];
