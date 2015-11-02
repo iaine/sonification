@@ -22,14 +22,15 @@ public class OSCSocket extends Socket
 
       Std.atoi(conf["port"]) => recv.port;
    
-      recv.listen;
-      "/" + conf["channel"] + ", " + conf["types"] => string chan;
+      recv.listen();
+      "/" + conf["channel"] + " ," + conf["types"] => string chan;
+      <<< "channel", chan >>>;
       recv.event(chan) @=> OscEvent e;
 
       while ( true ) 
       {
         e => now;
-
+        <<< "gggg" >>>;
         while (e.nextMsg() != 0)
         {
           
