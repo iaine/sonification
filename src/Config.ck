@@ -18,4 +18,34 @@ public class Config
 
     return conf;
   }
+
+  /**
+  *  Read in config file
+  */
+  fun string[] readConf(string fname)
+  {
+    if (!file.open(fname, FileIO.READ))
+    {
+      <<< "File cannot open " >>>;
+    }  
+
+    60 => int size;
+
+    int con[size];
+    for (0 => int i; i < size; i++) 
+        file => readData(con[i]);
+
+    file.close(); 
+
+    return con;
+  }
+
+  /**
+  *  Function to read in string data
+  */ 
+  fun string[] readData(line)
+  {
+    line.find("=") => int spl;
+    con[line.substring(0,(spl-1)] => line.substring(spl.substring((spl + 1));
+  }
 }
