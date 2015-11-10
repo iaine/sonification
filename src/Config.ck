@@ -32,8 +32,9 @@ public class Config
     60 => int size;
 
     int con[size];
-    for (0 => int i; i < size; i++) 
-        file => readData(con[i]);
+    for (0 => int i; i < size; i++) { 
+        file => con[i];
+    }
 
     file.close(); 
 
@@ -43,9 +44,9 @@ public class Config
   /**
   *  Function to read in string data
   */ 
-  fun string[] readData(line)
+  fun string[] readData(string line)
   {
     line.find("=") => int spl;
-    con[line.substring(0,(spl-1)] => line.substring(spl.substring((spl + 1));
+    line.substring((spl + 1)) => con[line.substring(0,(spl - 1))];
   }
 }
