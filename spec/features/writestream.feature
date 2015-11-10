@@ -6,7 +6,7 @@ Feature: Write a data Stream
 
   Scenario:
     Given I want to send an integer
-    When  I define "127.0.0.1" and the port 4567 and the number is 30, and the second is 0
+    When  I define "129.67.193.130" and the port 4567 and the number is 30, and the second is 0
     Then I hear a sound
 
     Given I want to send a float

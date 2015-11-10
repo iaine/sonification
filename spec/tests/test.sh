@@ -2,7 +2,9 @@
 
 chuck --loop &
 
-chuck + Assert.ck $1 $2
+SRC="/Users/iainemsley/Documents/git/sonification/src/"
+
+echo `chuck + Assert.ck $SRC$1 $2`
 
 echo "Killing Chuck processes"
 

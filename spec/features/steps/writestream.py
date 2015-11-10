@@ -37,10 +37,10 @@ def step_impl(context, host, port, flt_one,flt_two):
             if flt_two > 0.0:
                  client.send(OSCMessage(['/test', flt_one, flt_two]))
             else:
-                 client.send(OSCMessage(['/test', flt_one]))
+                 client.send(OSCMessage('/test', flt_one))
     else:
         if flt_two > 0.0:
-            client.send(OSCMessage(['/test', flt_one, flt_two]))
+            client.send(OSCMessage(['/test', flt_one,flt_two]))
         else:
             client.send(OSCMessage(['/test', flt_one]))
 
