@@ -21,12 +21,12 @@ public class OSCSocket extends Socket
       OscRecv recv;
 
       Std.atoi(conf["port"]) => recv.port;
-   
+      PlayFactory p;
       recv.listen();
       "/" + conf["channel"] + " ," + conf["types"] => string chan;
  
       recv.event(chan) @=> OscEvent e;
-
+      int args[5];
       while ( true ) 
       {
         e => now;
@@ -35,6 +35,8 @@ public class OSCSocket extends Socket
         {
           
           <<< e.getInt() >>>;
+          e.getInt() @=> args;
+          p.createFactory(args,"playwave");
         }
       }
 
