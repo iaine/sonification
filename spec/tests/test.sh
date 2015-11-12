@@ -5,9 +5,9 @@
 #
 ##############
 
-SRC="/Users/iainemsley/Documents/git/sonification/src/"
-
-chuck Assert.ck $SRC$1 $1Test.ck
+SRC="../../src/"
+echo $SRC$1;
+chuck Assert.ck ${SRC}$1 $1Test.ck
 
 #echo "Killing Chuck processes"
 
