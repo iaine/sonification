@@ -24,8 +24,7 @@ public class Config
   fun string[] readConfFile(string fname)
   {
       FileIO file;
-      <<< "hhhh" >>>;
-      <<< fname >>>;
+
     if (!file.open(fname, FileIO.READ))
     {
         string con[0];
@@ -38,7 +37,6 @@ public class Config
     string con[size];
 
     for (0 => int i; i < size; i++) {
-        <<<  "bbbb" >>>;
         file => con[i];
     }
 
