@@ -1,7 +1,6 @@
 /**
 *  Class to read in the configuration file
 */
-FileIO file;
 
 public class Config
 {
@@ -22,22 +21,29 @@ public class Config
   /**
   *  Read in config file
   */
-  fun string[] readConf(string fname)
+  fun string[] readConfFile(string fname)
   {
+      FileIO file;
+      <<< "hhhh" >>>;
+      <<< fname >>>;
     if (!file.open(fname, FileIO.READ))
     {
+        string con[0];
       <<< "File cannot open " >>>;
+      me.exit();
     }  
+ 
+    5 => int size;
 
-    60 => int size;
+    string con[size];
 
-    int con[size];
-    for (0 => int i; i < size; i++) { 
+    for (0 => int i; i < size; i++) {
+        <<<  "bbbb" >>>;
         file => con[i];
     }
 
     file.close(); 
-
+    <<< con >>>;
     return con;
   }
 
@@ -46,7 +52,8 @@ public class Config
   */ 
   fun string[] readData(string line)
   {
+    string r[];
     line.find("=") => int spl;
-    line.substring((spl + 1)) => con[line.substring(0,(spl - 1))];
+    line.substring((spl + 1)) @=> r[line.substring(0,(spl - 1))];
   }
 }
