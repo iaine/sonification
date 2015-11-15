@@ -8,9 +8,8 @@ Log l;
 
 a.assertNotNull(l);
 "testlog.txt" => string name;
-l.createLog(name);
+l.createLog("ALL", name);
 a.assertEquals(name, l.logFile);
+a.assertEquals(0, l.logLevel);
 
-l.writeLog("test message");
-l.writeLog("test messageg:");
-
+l.writeLog("DEBUG","test message");
