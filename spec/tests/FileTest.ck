@@ -44,7 +44,7 @@ a.assertEquals(100,val[0]);
 
 fs.readFloats(intf) @=> float fval[];
 a.assertEquals(101, fval.size());
-a.assertEquals(100.0,fval[0]);
+a.assertEquals(100.0,fval[0], 0);
 
 
 
