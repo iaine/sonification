@@ -1,11 +1,6 @@
 /**
 *  Socket class
 */
-
-/**
-*  Socket class
-*/
-
 class Socket
 {
 
@@ -19,9 +14,9 @@ public class OSCSocket extends Socket
    fun void read(string conf[]){
 
       OscRecv recv;
+      PlayFactory p;
 
       Std.atoi(conf["port"]) => recv.port;
-      PlayFactory p;
       recv.listen();
       "/" + conf["channel"] + " ," + conf["types"] => string chan;
  
@@ -33,10 +28,8 @@ public class OSCSocket extends Socket
 
         while (e.nextMsg() != 0)
         {
-          
-          <<< e.getInt() >>>;
-          e.getInt() @=> args;
-          p.createFactory(args,"playwave");
+          [e.getInt()] @=> int arg[];
+          p.createFactory(arg, "playwave");
         }
       }
 
