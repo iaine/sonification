@@ -41,7 +41,7 @@ public class Config
     }
 
     file.close(); 
-    <<< con >>>;
+
     return con;
   }
 
@@ -50,8 +50,17 @@ public class Config
   */ 
   fun string[] readData(string line)
   {
-    string r[];
-    line.find("=") => int spl;
-    line.substring((spl + 1)) @=> r[line.substring(0,(spl - 1))];
+    string r[1];
+    splitLine(line) => int spl;
+    
+    line.substring((spl + 1)) => r[line.substring(0,spl)];
+    return r;
+  }
+
+  /**
+  *  Function to split the line
+  */ 
+  fun int splitLine(string line) {
+      return line.find("=");
   }
 }
