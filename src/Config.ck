@@ -39,7 +39,7 @@ public class Config
     for (0 => int i; i < size; i++) {
         file => con[i];
     }
-
+    
     file.close(); 
 
     return con;
@@ -52,8 +52,10 @@ public class Config
   {
     string r[1];
     splitLine(line) => int spl;
-    
-    line.substring((spl + 1)) => r[line.substring(0,spl)];
+
+    if (spl > 0) { 
+      line.substring((spl + 1)) => r[line.substring(0,spl)];
+    }
     return r;
   }
 
