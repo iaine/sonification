@@ -16,3 +16,10 @@ a.assertNotNull(config);
 a.assertEquals(5, config.cap());
 a.assertEquals("host=127.0.0.1", config[0]);
 
+"host=127.0.0.1" => string confhost;
+a.assertEquals(4, c.splitLine(confhost));
+
+c.readData(confhost) @=> string read[];
+<<< read["host"] >>>;
+a.assertNotNull(read);
+a.assertEquals("127.0.0.1", read["host"]);
