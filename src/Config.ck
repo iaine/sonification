@@ -23,21 +23,12 @@ public class Config
   */
   fun string[] readConfFile(string fname)
   {
-      FileIO file;
-
-    if (!file.open(fname, FileIO.READ))
-    {
-        string con[0];
-      <<< "File cannot open " >>>;
-      me.exit();
-    }  
- 
-    5 => int size;
-
-    string con[size];
-
-    for (0 => int i; i < size; i++) {
-        file => con[i];
+      FS f;
+     
+      f.readString(fname) @=> string tmp_conf[];
+    string con[5];
+    for (0 => int i; i < 5; i++) {
+        readData(tmp_conf[i]) @=> con[i];
     }
     
     file.close(); 
