@@ -28,11 +28,11 @@ public class Config
       f.readString(fname) @=> string tmp_conf[];
     string con[5];
     for (0 => int i; i < 5; i++) {
-        readData(tmp_conf[i]) @=> con[i];
+        readData(tmp_conf[i]) @=> string tmp[];
+        <<< "data",tmp[0] >>>;
+        con[tmp[0]] => tmp[1];
     }
     
-    file.close(); 
-
     return con;
   }
 
