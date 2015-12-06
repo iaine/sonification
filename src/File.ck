@@ -25,7 +25,7 @@ public class FS
     FileIO file;
 
     if (!file.open(fname, FileIO.READ)) {
-
+        <<< "File not open", fname >>>;
     }
 
     float f_value[101];
@@ -41,7 +41,8 @@ public class FS
     FileIO file;
 
     if (!file.open(fname, FileIO.READ)) {
-
+        <<< "File not open", fname >>>;
+        me.exit();
     }
 
     string f_value[10];
