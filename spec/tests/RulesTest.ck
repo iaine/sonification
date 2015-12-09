@@ -5,6 +5,6 @@
 
 
 Assert a;
-MockRule m;
+MockRules m;
 
 a.assertNotNull(m);
