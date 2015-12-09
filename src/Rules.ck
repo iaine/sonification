@@ -7,14 +7,8 @@
 */
 
 
-class IRule {
-   fun int rules () {}
-   fun float rules() {}
-   fun string rules() {}
-}
-
-public class Rules extends IRule {
-   fun int rules () {}
-   fun float rules() {}
-   fun string rules() {}
+public class IRule {
+   fun int intrules (string str) {}
+   fun float fltrules(string str) {}
+   fun string strrules(string str) {}
 }
