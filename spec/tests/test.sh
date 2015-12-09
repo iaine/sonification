@@ -6,8 +6,8 @@
 ##############
 
 SRC="../../src/"
-echo $SRC$1;
-chuck Assert.ck ${SRC}$1 $1Test.ck
+
+chuck Assert.ck ${SRC}File.ck ${SRC}$1 $1Test.ck
 
 #echo "Killing Chuck processes"
 
