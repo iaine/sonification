@@ -30,7 +30,7 @@ public class Config
     for (0 => int i; i < 5; i++) {
         readData(tmp_conf[i]) @=> string tmp[];
         <<< "data",tmp[0] >>>;
-        con[tmp[0]] => tmp[1];
+        tmp[0] @=> con[tmp[1]];
     }
     
     return con;
