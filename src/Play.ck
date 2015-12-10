@@ -13,7 +13,7 @@ class IPlay {
 
   fun void playSound(int freq){}
   fun void playSound(float freq){}
-
+  fun void playSound(string freq){}
 }
 
 /**
@@ -39,9 +39,9 @@ public class PlayFactory
     *  Wrapper for playing a sample from the file system
     */
     fun void createFactory(string args[], string factType){
-      if (factType == "playbuffer") {
+      if (factType == "playsound") {
          PlayWave p;
-         p.playBuffer(args[0]);
+         p.playSound(args[0]);
       }
     }
 }
@@ -82,7 +82,7 @@ class PlayWave extends IPlay
   /**
   *  Play sound from a buffer
   */
-  fun void playBuffer (string fname) {
+  fun void playSound (string fname) {
      SndBuf buf => dac;
   
      fname => buf.read;
