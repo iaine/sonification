@@ -34,6 +34,16 @@ public class PlayFactory
          p.playSound(args[0]);
       }
     }
+
+    /**
+    *  Wrapper for playing a sample from the file system
+    */
+    fun void createFactory(string args[], string factType){
+      if (factType == "playbuffer") {
+         PlayWave p;
+         p.playBuffer(args[0]);
+      }
+    }
 }
 
 class PlayWave extends IPlay
@@ -67,5 +77,17 @@ class PlayWave extends IPlay
   fun float convertMidi(int k) 
   {
     return Std.mtof(k);
+  }
+
+  /**
+  *  Play sound from a buffer
+  */
+  fun void playBuffer (string fname) {
+     SndBuf buf => dac;
+  
+     fname => buf.read;
+     0 => buf.pos;
+     1 => buf.freq;
+     100::ms => now;
   }
 }
