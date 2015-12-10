@@ -35,7 +35,6 @@ for (0 => i; i < 100; i++) {
    f.write(" ");
 }
 
-
 f.close();
 
 fs.readInts(intf) @=> int val[];
