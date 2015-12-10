@@ -1,11 +1,11 @@
-/bin/bash
+#!/bin/bash
 
-CHUCK=`chuck Assert.ck Mock.ck `
+#CHUCK=`chuck Assert.ck Mock.ck `
 
-chuck --loop &
+#chuck --loop &
 
-chuck + ../../src/minnelieder.ck
+#chuck + ../../src/minnelieder.ck
 
-for file in ./*Test.ck; do
-    $CHUCK $file
+for F in ./*Test.ck; do
+    echo $F
 done
