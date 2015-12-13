@@ -1,11 +1,14 @@
 #!/bin/bash
 
-#CHUCK=`chuck Assert.ck Mock.ck `
+############################
+#
+#  Script to run all the unit tests
+#
+############################
 
-#chuck --loop &
+TESTS=(Config Exception File Log Play Rules Socket)
 
-#chuck + ../../src/minnelieder.ck
-
-for F in ./*Test.ck; do
-    echo $F
+for TEST in "${TESTS[@]}"
+do
+    ./test.sh ${TEST}
 done
