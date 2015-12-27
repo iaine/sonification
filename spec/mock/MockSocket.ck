@@ -35,9 +35,7 @@ public class MockSocket extends ISocket
           [e.getInt()] @=> args;
           s.setHost( conf["hostname"], 6789 );
           s.startMsg("/resp", conf["types"]);
-          for (0 => int i, i < args.cap(); i++) {
-              s.addInt(args[i]);
-          }
+          args[0] => int tmp => s.addInt;
         }
       }
 
@@ -53,6 +51,6 @@ public class MockSocket extends ISocket
       s.setHost( hostname, port );
       "/" + conf["channel"] + " ," + conf["types"] => string chan_s;
       s.startMsg( chan_s, conf["types"] );
-      s.addInt();
+      //s.addInt;
    }
 }
