@@ -39,7 +39,7 @@ public class PlayFactory
     *  Wrapper for playing a sample from the file system
     */
     fun void createFactory(string args[], string factType){
-      if (factType == "playsound") {
+      if (factType == "playwave") {
          PlayWave p;
          p.playSound(args[0]);
       }

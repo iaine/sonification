@@ -7,7 +7,7 @@ Machine.add("IPlay.ck");
 Machine.add("ISocket.ck");
 
 // add the classes
-//Machine.add("Play.ck");
+Machine.add("Play.ck");
 //Machine.add("OSCSocket.ck");
 
-<<< "Sonome library added" >>>;
+<<< "Minnelieder library added" >>>;
