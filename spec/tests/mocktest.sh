@@ -7,7 +7,7 @@
 
 SRC="../../src/"
 
-chuck Assert.ck ${SRC}$1.ck ../mock/Mock${1}.ck $1Test.ck
+chuck Assert.ck ${SRC}Play.ck  ${SRC}$1.ck ../mock/Mock${1}.ck $1Test.ck
 
 #echo "Killing Chuck processes"
 

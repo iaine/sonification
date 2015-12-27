@@ -4,20 +4,48 @@
 
 Assert a;
 
-Socket s;
+MockSocket s;
 int rec_obj[2];
-string config[];
-"127.0.0.1" @=> config["host"];
-"4567" @=> config["port"];
-"/osctest" @=> config["channel"];
-"i" @=> config["type"];
 
 //test the Socket class
 a.assertNotNull(s);
 
-OscSend xmit;
+int recv;
 
-xmit.setHost( "127.0.0.1", 4567 );
-xmit.startMsg( "/osctest", "i" );
-60 => xmit.addInt;
-a.assertEquals(rec_obj[0], 60);
+string c[];
+"127.0.0.1" => c["hostname"];
+"4567" => c["port"];
+"test" => c["channel"];
+"i"    => c["types"];
+
+spork ~ s.read(c);
+spork ~ oscs();
+spork ~ r(recv);
+
+
+a.assertEquals(recv,60);
+
+fun void oscs() {
+
+OscSend s1;
+s1.setHost( "127.0.0.1", 4567 );
+s1.startMsg("test", "i");
+60 => s1.addInt;
+
+}
+
+fun int r(int recv) {
+OscRecv r;
+6789 => r.port;
+r.listen();
+r.event("/resp") @=> OscEvent e;
+while ( true )
+{
+  e => now;
+
+  while (e.nextMsg() != 0)
+{
+    e.getInt() => recv;
+}
+}
+}

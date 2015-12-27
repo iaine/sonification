@@ -15,6 +15,16 @@ public class Mock
     }
   }
 
+  fun void createMock (string classname, string functionname, string args[])
+  {
+    if (classname == "Play") {
+      playMock pm;
+      pm.createMock(classname, functionname, args);
+    } else {
+      <<< "Class not found", classname >>>;
+    }
+  }
+
   fun void createMock (string classname, string functionname, string args[]) 
   {
     if (classname == "Config") {
@@ -29,6 +39,16 @@ public class Mock
 class playMock
 {
    fun void createMock (string classname, string functionname, int args[]) 
+   {
+      PlayFactory p;
+      if (functionname == "createFactory") {
+        p.createFactory(args,"playSound");
+      } else {
+        <<< "Function name is invalid", functionname >>>;
+      }
+   }
+
+   fun void createMock (string classname, string functionname, string args[])
    {
       PlayFactory p;
       if (functionname == "createFactory") {

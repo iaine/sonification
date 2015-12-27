@@ -27,15 +27,12 @@ a.assertNotNull(pw);
 //pw.convertMidi(60) => float l;
 //a.assertEquals(l, 261.625565, 1.0);
 
-a.assertEquals(pw.playSound(), "Argument error");
-a.assertEquals(pw.playSound("failme"), "Argument error");
+//a.assertEquals(pw.createFactory([0],""), "Argument error");
+//a.assertEquals(pw.createFactory(["../data/c.wav"], "playwave"), "Argument error");
 <<< "End assertion tests" >>>;
 
 <<< "Begin Mocks" >>>;
-m.createMock(pw, "playSound",[60]);
-m.createMock(pw, "playSound",[60.0]);
-m.createMock(pw, "playSound",["failme"]);
+m.createMock(pw, "playwave",[60]);
+m.createMock(pw, "playwave",[60.0]);
+m.createMock(pw, "playwave",["../data/c.wav"]);
 <<< "End Mocks" >>>;
-
-<<< "Playing Bufer" >>>;
-m.createMock(pw, "playBuffer",["../data/c.wav"]);
