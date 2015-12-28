@@ -4,7 +4,8 @@
 *  author: Iain Emsley
 */
 
-Socket osc;
+Socket s;
+Config c;
 Log l;
 
 string config[10];
