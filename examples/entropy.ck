@@ -1,17 +1,17 @@
 /**
-*  Entropy sonification
+*  Entropy sonification via command line
 *
 */
 
-OSCSocket s;
-Config c;
+// Declarations
+PlayFactory p;
+EntRules er;
 
-//fun void loop (me)
-//{
-  string config[10];
-  c.readConf(me.arg(0), me.arg(1), me.arg(2), me.arg(3)) @=> config;
-  <<< "reading" >>>;
-  s.read(config);
-//}
+//Load the first argument and cast to float
+[Std.atof(me.arg(0))] => float fstArg;
 
-//loop(me);
+//Return the relevant filename based on the rule
+[er.floatToStr(fstArg)] @=> string ent[];
+
+//Play the sound file given
+p.createFactory(ent,"playwave");
