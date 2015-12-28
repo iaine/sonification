@@ -16,7 +16,7 @@ public class EntRules extends IRule {
    *  If float is less than 50, then display tweet
    *  else cuckoo for a retweet 
    */
-   fun float fltToStr(float i) {
+   fun string fltToStr(float i) {
       return (i < 50.0) ? "tweet.wav" : "cuckoo.wav";
    }
 }
