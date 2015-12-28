@@ -21,15 +21,23 @@ public class Socket extends ISocket
       "/" + conf["channel"] + " ," + conf["types"] => string chan;
  
       recv.event(chan) @=> OscEvent e;
-      int args[5];
+
+  
+          int arg[5];
+          float args[5];
       while ( true ) 
       {
         e => now;
 
         while (e.nextMsg() != 0)
         {
-          [e.getInt()] @=> int arg[];
-          p.createFactory(arg, "playwave");
+          if (conf["types"] == "f") {
+              [e.getFloat()] @=> args;
+              p.createFactory(args, "playwave");
+          } else {
+              [e.getInt()] @=> arg;
+              p.createFactory(arg, "playwave");
+          }
         }
       }
 
