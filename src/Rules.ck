@@ -12,5 +12,5 @@ public class IRule {
    fun float fltrules(string str) {}
    fun string strrules(string str) {}
    // float
-   fun float fltToStr(float i) {}
+   fun string fltToStr(float i) {}
 }

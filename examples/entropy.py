@@ -14,5 +14,4 @@ def entropy():
 
 for i in range(100):
     ent = entropy()
-    print ent
-    #subprocess.call(["chuck", "entropy.ck:"+ str(ent)])
+    subprocess.call(["chuck", " ../src/Rules.ck ../src/Play.ck ../src/Log.ck EntRules.ck  entropy.ck:"+ str(ent)])
