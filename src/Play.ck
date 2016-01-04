@@ -32,6 +32,9 @@ public class PlayFactory
       if (factType == "playwave") {
          PlayWave p;
          p.playSound(args[0]);
+      } else if (factType == "panwave") {
+         PlayWave p;
+         p.playPanSound(args);
       }
     }
 
@@ -53,6 +56,7 @@ class PlayWave extends IPlay
   *  Play sound using an integer
   */
   fun void playSound(int freq) {
+
     SinOsc sw => dac;
     freq => sw.freq;
     1::second => now;
@@ -64,11 +68,25 @@ class PlayWave extends IPlay
   *  Play sound using a float
   */
   fun void playSound(float freq) {
+
     SinOsc sw => dac;
-    freq => sw.freq;
-    1::second => now;
-    // switch note off
-    0 => sw.freq; 
+    
+    (100 + freq) => sw.freq;
+    100::ms => now;
+ 
+  }
+
+  /**
+  *  Play sound using a float and panning the sound
+  */
+  fun void playPanSound(float freq[]) {
+    
+    SinOsc sw => Pan2 p => dac;
+    
+    (100 + freq[0]) => sw.freq;
+    freq[1] => p.pan;
+    100::ms => now;
+                      
   }
   
   /**
