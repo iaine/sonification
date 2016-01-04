@@ -19,4 +19,13 @@ public class EntRules extends IRule {
    fun string fltToStr(float i) {
       return (i < 50.0) ? "tweet.wav" : "cuckoo.wav";
    }
+   
+   /**
+   *  Calculate the relative position of the sound made 
+   *  using the float. We remove 50 to centre on 0 as the middle
+   *  with -1 to the left and 1 to right.  
+   */
+   fun float calculatePosition (float i) {
+      return (i - 50);
+   }
 }
