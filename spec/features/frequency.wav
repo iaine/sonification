@@ -1,0 +1,17 @@
+Feature: Assigning a frequency to a sonification
+
+As a user
+I want to define the frequency of a tone
+So that I can hear that frequency
+
+  Scenario
+    Given a frequency of 440 Hz
+    When I create a file called "freq.wav"
+    Then I extract the frequency from the "freq.wav"
+    And I see a graph called "singletone.png"
+
+  Scenario
+    Given an series of frequencies in an arpeggio
+    When I create a file called "arpeggio.wav"
+    Then I extract the frequencies from the "arpeggio.wav"
+    And I see a graph called "arpeggio.png"
