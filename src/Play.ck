@@ -93,7 +93,7 @@ class PlayWave extends IPlay
     SinOsc s => dac;
     ClientRules cr;
     
-    cr.assignChannel(chan[1]) => dac.chan;
+    (chan < 90) ? 1 : 2 => dac.chan;
     440 => s.freq;
     100::ms => now;     
   }

@@ -4,6 +4,7 @@
 *  @author: Iain Emsley
 */
 
+
 /**
 *  Note structure that uses floats
 */
@@ -38,4 +39,16 @@ public class WavNote {
   int frequency;
   int duration;
   int pan;
+}
+
+/**
+* Note taken from the spatial XML files
+*/
+public class SpatialNote {
+
+  string filename;
+
+  float x;
+  float y;
+  float z;
 }
