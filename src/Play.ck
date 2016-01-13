@@ -88,6 +88,15 @@ class PlayWave extends IPlay
     100::ms => now;
                       
   }
+
+  fun void playChannel (int chan) {
+    SinOsc s => dac;
+    ClientRules cr;
+    
+    (chan < 90) ? 1 : 2 => dac.chan;
+    440 => s.freq;
+    100::ms => now;     
+  }
   
   /**
   *  Convert Midi into Frequency 

@@ -11,4 +11,8 @@ public class MockRules extends IRule {
    fun float fltrules() {}
    fun string strrules(string op) {
    }
+
+   fun string floatToStr(float f) {
+       return (f < 50.0) ? "a.wav" : "b.wav";
+   }
 }
