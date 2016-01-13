@@ -46,6 +46,21 @@ public class Socket extends ISocket
 
 
    fun void send(string conf[]) {
+      OscSend s;
+      string hostname;
+      if (conf['x'] == '0') {
+          "localhost" => hostname;
+      } else {
+          '' => hostname;
+      }
 
+      6789 => int port;
+
+      s.setHost(hostname, port);
+
+      s.startMsg("/social", "i i");
+      s.addInt(Std.atoi(conf["x"]));
+      s.addInt(Std.atoi(conf["y"]));
+      10::ms => now;
    }
 }
