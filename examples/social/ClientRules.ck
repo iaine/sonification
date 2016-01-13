@@ -5,7 +5,7 @@
 *  Author: Iain Emsley
 */
 
-public class ClientRules extends IRule() {
+public class ClientRules extends IRule {
    fun int intrules (string str) {}
    fun float fltrules(string str) {}
    fun string strrules(string str) {}
