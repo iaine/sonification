@@ -25,7 +25,10 @@ public class PlayFactory
       if (factType == "playwave") {
          PlayWave p;
          p.playSound(args[0]);
-      } 
+      } else if (factType == "playchannel") {
+         PlayWave p;
+         p.playChannel(args[1]);
+      }
     } 
 
     fun void createFactory(float args[], string factType){
@@ -91,7 +94,6 @@ class PlayWave extends IPlay
 
   fun void playChannel (int chan) {
     SinOsc s => dac;
-    ClientRules cr;
     
     (chan < 90) ? 1 : 2 => dac.chan;
     440 => s.freq;
