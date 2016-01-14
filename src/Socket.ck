@@ -21,8 +21,7 @@ public class Socket extends ISocket
       "/" + conf["channel"] + " ," + conf["types"] => string chan;
  
       recv.event(chan) @=> OscEvent e;
-
-  
+ 
           int arg[5];
           float args[5];
       while ( true ) 
@@ -36,7 +35,8 @@ public class Socket extends ISocket
               p.createFactory(args, "playwave");
           } else {
               [e.getInt()] @=> arg;
-              p.createFactory(arg, "playwave");
+              <<< arg[0] >>>;
+              p.createFactory(arg, "playchannel");
           }
         }
       }
@@ -48,19 +48,19 @@ public class Socket extends ISocket
    fun void send(string conf[]) {
       OscSend s;
       string hostname;
-      if (conf['x'] == '0') {
+      if (Std.atoi(conf["x"]) > 1) {
           "localhost" => hostname;
       } else {
-          '' => hostname;
+          "129.67.193.131" => hostname;
       }
 
       6789 => int port;
 
       s.setHost(hostname, port);
-
-      s.startMsg("/social", "i i");
+      <<< "sending: ",Std.atoi(conf["x"]) >>>;
+      s.startMsg("/social", "i");
       s.addInt(Std.atoi(conf["x"]));
-      s.addInt(Std.atoi(conf["y"]));
+      //s.addInt(Std.atoi(conf["y"]));
       10::ms => now;
    }
 }

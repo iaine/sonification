@@ -27,7 +27,7 @@ public class PlayFactory
          p.playSound(args[0]);
       } else if (factType == "playchannel") {
          PlayWave p;
-         p.playChannel(args[1]);
+         p.playChannel(args[0]);
       }
     } 
 
@@ -93,12 +93,32 @@ class PlayWave extends IPlay
   }
 
   fun void playChannel (int chan) {
-    SinOsc s => dac;
-    
-    (chan < 90) ? 1 : 2 => dac.chan;
-    440 => s.freq;
-    100::ms => now;     
+    <<< "channel: ", chan >>>;
+    if (chan == 90) {
+        playChannelOne();
+    } else {
+        playChannelTwo();
+    }
   }
+
+  fun void playChannelOne() {
+    SinOsc s => dac.chan(0);
+    
+    440 => s.freq;
+    1 => s.gain;
+    100::ms => now;
+    0 => s.freq;
+  }
+
+  fun void playChannelTwo() {
+    SinOsc s => dac.chan(1);
+    <<< "Two" >>>;
+    220 => s.freq;
+    1 => s.gain;
+    100::ms => now;
+    0 => s.freq;
+  }
+
   
   /**
   *  Convert Midi into Frequency 
