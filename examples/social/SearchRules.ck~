@@ -12,7 +12,7 @@ public class ClientRules extends IRule {
    // float
    fun string fltToStr(float i) {}
 
-   fun string assignTone (int degree) {
-      return (degree == 1) ? 260 : 440;
+   fun float assignTone (int degree) {
+      return (degree == 1) ? 260.00 : 440.00;
    }
 }

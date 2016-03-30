@@ -5,14 +5,14 @@
 *  Author: Iain Emsley
 */
 
-public class ClientRules extends IRule {
+public class SearchRules extends IRule {
    fun int intrules (string str) {}
    fun float fltrules(string str) {}
    fun string strrules(string str) {}
    // float
    fun string fltToStr(float i) {}
 
-   fun string assignTone (int degree) {
-      return (degree == 1) ? 260 : 440;
+   fun float assignTone (int degree) {
+      return (degree == 1) ? 260.00 : 440.00;
    }
 }

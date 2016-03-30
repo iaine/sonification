@@ -5,24 +5,25 @@
 *  Author: Iain Emsley
 */
 
-public class ServerRules extends IRule() {
+public class ServerRules extends IRule {
    fun int intrules (string str) {}
    fun float fltrules(string str) {}
    fun string strrules(string str) {}
    // float
    fun string fltToStr(float i) {}
 
-   fun int assignChannel (string mediatype) {
-      return (mediatype == "D7" || mediatype == "tweet) ? 270 : 90;
+   fun string assignChannel (string mediatype) {
+      return (mediatype == "D7" || mediatype == "tweet") ? "270" : "90";
    }
 
-   fun int assignMachine (string media) {
-     int machine;
-     if (media == "tweet" || media == "retweet") {
-        machine => 0;
+   fun string assignMachine (string media) {
+     string machine;
+     if (media == "tweet" || media == "retweet" || media == "yt") {
+        "0" => machine;
      } else {
-        machine => 180;
+        "180" => machine;
      }
+     return machine;
    }
 
    
