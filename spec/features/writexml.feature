@@ -1,11 +1,10 @@
-Feature: Sending Spatial Data to the sonification
-  In order to define spatial features in the toolkit
-  As a designer
-  I want to send data in Spatial XML
+Feature: Writing log data
 
-  Scenario: Transferring data wih ASDF format
-    Given I want to use "play.wav"
-    And define the X axis as 20
-    And a duration of 100 ms
-    When I send the data as an ASDF formated file
-    I should be a sound for 100 ms 
+  Scenario: Writing a log file
+    Given I want to write a log file called testlog.txt
+    When I want to write 440 for 200 ms
+    Then I find a file called testlog.txt
+
+    Given I want to write a log file called testlog.txt
+    When I want to write 440 for 200 ms
+    Then the first line is 440:200
