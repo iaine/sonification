@@ -1,1 +1,0 @@
-Feature: Write a file
