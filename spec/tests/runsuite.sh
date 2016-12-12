@@ -12,5 +12,5 @@ WORKSPACE=$(pwd)
 
 for TEST in "${TESTS[@]}"
 do
-    ${WORKSPACE}/test.sh ${TEST}
+    ${WORKSPACE}/spec/tests/test.sh ${TEST}
 done
