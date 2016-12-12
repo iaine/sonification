@@ -8,7 +8,9 @@
 
 TESTS=(Config Exception File Log Play Rules Socket)
 
+WORKSPACE=$(pwd)
+
 for TEST in "${TESTS[@]}"
 do
-    ./test.sh ${TEST}
+    ${WORKSPACE}/test.sh ${TEST}
 done
