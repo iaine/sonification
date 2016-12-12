@@ -5,7 +5,7 @@
 #
 ##############
 
-SRC="../../src/"
+SRC="$( pwd )/src/"
 
 chuck Assert.ck ${SRC}File.ck ${SRC}Play.ck  ${SRC}$1 ${SRC}/Config.ck  Mock.ck $1Test.ck
 
