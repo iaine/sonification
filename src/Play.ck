@@ -26,7 +26,7 @@ public class PlayFactory
          PlayWave p;
          p.playSound(args[0]);
       } else if (factType == "playchannel") {
-         PlayWave p;
+         PlayChannel p;
          p.playChannel(args[0]);
       }
     } 
@@ -46,7 +46,7 @@ public class PlayFactory
     */
     fun void createFactory(string args[], string factType){
       if (factType == "playwave") {
-         PlayWave p;
+         PlaySample p;
          p.playSound(args[0]);
       }
     }
@@ -128,6 +128,38 @@ class PlayWave extends IPlay
     return Std.mtof(k);
   }
 
+}
+
+class PlayChannel {
+  fun void playChannel (int chan) {
+    <<< "channel: ", chan >>>;
+    if (chan == 90) {
+        playChannelOne();
+    } else {
+        playChannelTwo();
+    }
+  }
+
+  fun void playChannelOne() {
+    SinOsc s => dac.chan(0);
+    
+    440 => s.freq;
+    1 => s.gain;
+    100::ms => now;
+    0 => s.freq;
+  }
+
+  fun void playChannelTwo() {
+    SinOsc s => dac.chan(1);
+    <<< "Two" >>>;
+    220 => s.freq;
+    1 => s.gain;
+    100::ms => now;
+    0 => s.freq;
+  }
+}
+
+class PlaySample {
   /**
   *  Play sound from a buffer
   */
