@@ -4,7 +4,7 @@
 
 public class FS
 {
-  fun int[] readInts(string fname)
+  fun int[] readInts(string fname, int size)
   {
     FileIO file;
 
@@ -12,7 +12,7 @@ public class FS
          <<< "Could not open file" >>>;
     }
     
-    int value[101];
+    int value[size];
 
     for (0 => int i; i < value.size(); i++ ) {
        file => value[i];
