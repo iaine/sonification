@@ -27,7 +27,10 @@ public class PlayFactory
          p.playSound(args[0]);
       } else if (factType == "playchannel") {
          PlayWave p;
-         p.playChannel(args[0]);
+         p.playChannel(args[0], args[1], args[2]);
+      } else if (factType == "panchannel") {
+         PlayWave p;
+         p.panChannel(args[0], args[1], args[2], args[3]);
       }
     } 
 
@@ -38,7 +41,14 @@ public class PlayFactory
       } else if (factType == "panwave") {
          PlayWave p;
          p.playPanSound(args);
+      } else if (factType == "playchannel") {
+         PlayWave p;
+         p.playChannel(args[0], args[1], args[2]);
+      } else if (factType == "panchannel") {
+         PlayWave p;
+         p.panChannel(args[0], args[1], args[2], args[3]);
       }
+       
     }
 
     /**
@@ -92,33 +102,45 @@ class PlayWave extends IPlay
                       
   }
 
-  fun void playChannel (int chan) {
-    if (chan == 90) {
-        playChannelOne();
-    } else {
-        playChannelTwo();
-    }
-  }
-
-  fun void playChannelOne() {
-    SinOsc s => dac.chan(0);
-    
-    440 => s.freq;
+  fun void playChannel (int chan, int note, int time) {
+    SinOsc s => dac.chan(chan);
+ 
+    note => s.freq;
     1 => s.gain;
-    100::ms => now;
+    time::ms => now;
     0 => s.freq;
   }
 
-  fun void playChannelTwo() {
-    SinOsc s => dac.chan(1);
-
-    220 => s.freq;
+  fun void playChannel (int chan, float note, int time) {
+    SinOsc s => dac.chan(chan);
+    note => s.freq;
     1 => s.gain;
-    100::ms => now;
+    time::ms => now;
     0 => s.freq;
   }
 
-  
+  fun void panChannel (int chan, int note, int time, int panning) {
+
+    SinOsc s => Pan2 p => dac.chan(chan);
+
+    note => s.freq;
+    1 => s.gain;
+    panning => p.pan;
+    time::ms => now;
+    0 => s.freq;
+  }
+
+  fun void panChannel (int chan, float note, int time, int panning) {
+
+    SinOsc s => Pan2 p => dac.chan(chan);
+
+    note => s.freq;
+    1 => s.gain;
+    panning => p.pan;
+    time::ms => now;
+    0 => s.freq;
+  }
+
   /**
   *  Convert Midi into Frequency 
   */
